@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        include ../includes/admin/head
+    body
+        .row
+            .col-md-4.mx-auto.mt-5
+                .card
+                    .card-header.mt-4.text-center
+                        h2 Inicia sesion
+                    img(src="", alt="", class="rounded-circle mx-auto d-block m-4 logo")
+                    .card-body
+                        form(action="/admin" method="POST")
+                            .form-group
+                                input(type="email" class="form-control" name="email" placeholder="email")
+                            .form-group
+                                input(type="password" class="form-control" name="password" placeholder="Contraseña")
+                            .form-group
+                                input(type="submit" class="btn btn-success btn-block btn-lg" value="Entrar")
+        include ../includes/admin/foot.pug
+        

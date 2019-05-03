@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title admin tatto | add
+        include ../includes/admin/head.pug
+    body(id="page-top")
+        include ../includes/admin/navigation.pug
+        //- Form tattoo
+        .container.p-4
+            .row
+                .col-md-12
+                    a(href="/admin/tattoo/add") Agregar tatuajes 
+                    table.table.table-bordered.table-sm
+                        thead
+                            tr
+                                td Id
+                                td Nombre
+                                td Descripcion
+                                td Creado
+                                td
+                        tbody
+                        -tattoos.forEach(function(tattoo){
+                            tr 
+                                td=tattoo.cnt
+                                td=tattoo.title
+                                td=tattoo.description
+                                td=format(tattoo.created_at)
+                                td 
+                                    a(href="/admin/tattoo/"+tattoo._id+"/delete" class="btn btn-danger") Eliminar
+                                td
+                                    img(src=tattoo.path, class="img-fluid", width="100")
+                        -})
+        include ../includes/admin/foot.pug

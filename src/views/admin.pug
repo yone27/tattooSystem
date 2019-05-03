@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title admin tatto | add
+        include includes/admin/head.pug
+    body(id="page-top")
+        include includes/admin/navigation.pug
+        //- Form tattoo
+        .container.p-4
+            .row
+                .col-md-4.offset-md-4
+                    .card
+                        .card-header.text-center
+                            h4.card-title="Buenas "+user.name + ", como esta?"
+                        .card-body
+        div(id="demo" class="carousel slide" data-ride="carousel")
+            ul.carousel-indicators
+                li(data-target="#demo" data-slide-to="0" )
+                li(data-target="#demo" data-slide-to="1" )
+                li(data-target="#demo" data-slide-to="2" )
+            .carousel-inner
+                .carousel-item
+                    img(src="http://lorempixel.com/400/200/" width="100" )
+                .carousel-item
+                    img(src="http://lorempixel.com/400/200/" width="100" )
+                .carousel-item
+                    img(src="http://lorempixel.com/400/200/" width="100" )
+                
+        a(class="carousel-control-next" href="#demo" data-slide="prev")
+            span.carousel-control-next-icon
+        a(class="carousel-control-prev" href="#demo" data-slide="prev")
+            span.carousel-control-prev-icon
+        include includes/admin/foot.pug        
+                                    
+
+
+                        
+
+
+        

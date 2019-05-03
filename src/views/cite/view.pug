@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title admin tatto | add
+        include ../includes/admin/head.pug
+    body(id="page-top")
+        include ../includes/admin/navigation.pug
+        //- table cite
+        .container.p-4
+            .row
+                .col-md-12
+                    table.table.table-bordered.table-hover
+                        thead
+                            tr
+                                td Id
+                                td Titulo
+                                td Mensaje
+                                td Descripcion
+                                td Creado
+                        tbody
+                        -cites.forEach(function(cite){
+                            tr 
+                                td=cite.cnt
+                                td=cite.name
+                                td=cite.message
+                                td=cite.email
+                                td=format(cite.created_at)
+                                td 
+                                    a(href="/admin/cite/"+cite._id+"/delete" class="btn btn-danger") Eliminar
+                        -})
+        include ../includes/admin/foot.pug

@@ -1,0 +1,42 @@
+
+nav{
+    --duration:.5s;
+    --easing: ease-in-out;
+    width: 220px;
+    height: 100vh;
+    background: #212529;
+}
+nav ol li ol{
+    list-style: none;
+    margin:0;
+    padding-left:20px;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    transform-origin: 0 0;
+    padding: 1em 1.52em;
+}
+nav a:hover {
+    background: #13161a;
+
+}
+nav .sub-menu {
+    font-size: .9em;
+    color: #666;
+    border-left: 2em solid white;
+    padding: .75em;
+    color: black;
+    background: linear-gradient(to-right, #dddddd 2px, #ffffff 2px)
+}
+nav ol .sub-menu ol{
+    display: none;
+}
+
+nav .sub-menu a:hover{
+    display: block;
+
+}
+
+

@@ -4,41 +4,11 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        title My tattoos
-
-        //- Bootstrap core CSS
-        link(rel="stylesheet", href="/vendor/bootstrap/css/bootstrap.min.css")
-        link(rel="stylesheet", href="/css/animate.css")
-
-        //- Custom fonts
-        link(rel="stylesheet", href="vendor/fontawesome-free/css/all.min.css")
-        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Montserrat:400,700")
-        link(rel="stylesheet", href='https://fonts.googleapis.com/css?family=Kaushan+Script')
-        link(rel="stylesheet", href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic')
-        link(rel="stylesheet", href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700')
-
-        //- Custom styles
-        link(rel="stylesheet", href="/css/estilos.css")
+        title Gobierno arte
+        include includes/client/head.pug
 
     body(id="page-top")
-        //- Navigation 
-        nav.navbar.navbar-expand-lg.navbar-dark.fixed-top#mainNav
-            .container
-                a(href="#page-top" class="navbar-brand js-scroll-trigger animated bounceInLeft") Gobernantes Del Arte
-                button(class="navbar-toggler navbar-toggler-right animated bounceInRight" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation")
-                    <i class="fas fa-bars"></i>
-                .collapse.navbar-collapse.animated.bounceInDown#navbarResponsive
-                    ul.navbar-nav.text-uppercase.ml-auto
-                        li.nav-item
-                            a(href="#home" class="nav-link js-scroll-trigger") INICIO
-                        li.nav-item
-                            a(href="#portfolio" class="nav-link js-scroll-trigger") TATUAJES
-                        li.nav-item
-                            a(href="#art" class="nav-link js-scroll-trigger") ARTE
-                        li.nav-item
-                            a(href="#contacto" class="nav-link js-scroll-trigger") CONTACTANOS
-                        li.nav-item
-                            a(href="#we" class="nav-link js-scroll-trigger") NOSOTROS
+        include includes/client/navigation.pug
         //- Header
         header.masthead#home
             .container
@@ -57,7 +27,7 @@ html(lang="en")
                         hr.hr-2
                         p.text-muted.font-14 Lorem ipsum dolorem sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
                         p.text-muted.font-14 Lorem ipsum dolorem sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
-                        a(href="#" class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button font-normal mb-4") !Pide una cita!
+                        a(href="#contacto" class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button font-normal mb-4") !Pide una cita!
                     .col-md-4.col-sm-12.portfolio-item.mb-4.text-center
                         a(href="#portfolioModal1" class="portfolio-link shadow-wp")
                             img(src="img/team/1.jpg", class="img-fluid size-img-2")
@@ -72,6 +42,7 @@ html(lang="en")
                             .col-md-12.col-sm-4
                                 a(href="#portfolioModal1" class="portfolio-link shadow-wp" data-toggle="modal")
                                     img(src="img/portfolio/01-thumbnail.jpg", class="img-fluid size-img width100")
+
         
         //- Cintillo
         section.page-section.bg-cintillo-1
@@ -81,69 +52,31 @@ html(lang="en")
                         h2#test11.text-white.mt-0 ¿ESTAS LISTO PARA TU 
                             b.color-black PROXIMO TATUAJE?
                         p.mb-4.color-white.font-2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, magni. Unde voluptatem   temporibus dicta! Vero cupiditate iusto reiciendis ducimus, obcaecati.
-                        a(href="#services", class="btn btn-light js-scroll-trigger btn-tattos") !Pide una cita!
+                        a(href="#contacto", class="btn btn-light js-scroll-trigger btn-tattos") !Pide una cita!
         
         //- Portfolio Grid
         section#portfolio.bg-light
             .container-fluid
+                -if(tattoos.length > 0) {
                 .row
                     .col-lg-12.text-center
                         p#pWepa ¿Quieres tatuarte?
-                        h2.section-heading.color-wp Mira mis ùltimos trabajos
+                        h2.section-heading.color-wp Mira Nuestros ùltimos trabajos
                         hr#hrWpepa
-                .row
+                    -tattoos.forEach(function(tattoo){
                     .col-md-3.col-sm-4.portfolio-item
-                        a(class="portfolio-link shadow-wp" data-toggle="modal" href="#portfolioModal1")
+                        a(class="portfolio-link shadow-wp" data-toggle="modal" href="#pf"+tattoo.cnt)
                             .portfolio-hover
                                 .portfolio-hover-content
                                     i.fas.fa-search.fa-3x
-                            img(src="img/portfolio/01-thumbnail.jpg", alt="", class="img-fluid img-wp")
-                    .col-md-3.col-sm-4.portfolio-item
-                        a(class="portfolio-link shadow-wp" data-toggle="modal" href="#portfolioModal2")
-                            .portfolio-hover
-                                .portfolio-hover-content
-                                    i.fas.fa-search.fa-3x
-                            img(src="img/portfolio/02-thumbnail.jpg", alt="", class="img-fluid img-wp")
-                    .col-md-3.col-sm-4.portfolio-item
-                        a(class="portfolio-link shadow-wp" data-toggle="modal" href="#portfolioModal3")
-                            .portfolio-hover
-                                .portfolio-hover-content
-                                    i.fas.fa-search.fa-3x
-                            img(src="img/portfolio/03-thumbnail.jpg", alt="", class="img-fluid img-wp")
-                    .col-md-3.col-sm-4.portfolio-item
-                        a(class="portfolio-link shadow-wp" data-toggle="modal" href="#portfolioModal4")
-                            .portfolio-hover
-                                .portfolio-hover-content
-                                    i.fas.fa-search.fa-3x
-                            img(src="img/portfolio/04-thumbnail.jpg", alt="", class="img-fluid img-wp")
-                    .col-md-3.col-sm-4.portfolio-item
-                        a(class="portfolio-link shadow-wp" data-toggle="modal" href="#portfolioModal5")
-                            .portfolio-hover
-                                .portfolio-hover-content
-                                    i.fas.fa-search.fa-3x
-                            img(src="img/portfolio/05-thumbnail.jpg", alt="", class="img-fluid img-wp")
-                    .col-md-3.col-sm-4.portfolio-item
-                        a(class="portfolio-link shadow-wp" data-toggle="modal" href="#portfolioModal8")
-                            .portfolio-hover
-                                .portfolio-hover-content
-                                    i.fas.fa-search.fa-3x
-                            img(src="img/portfolio/08-thumbnail.jpg", alt="", class="img-fluid img-wp")
-                    .col-sm-2.d-md-none
-                    .col-md-3.col-sm-4.offset-md-1.portfolio-item
-                        a(class="portfolio-link shadow-wp" data-toggle="modal" href="#portfolioModal7")
-                            .portfolio-hover
-                                .portfolio-hover-content
-                                    i.fas.fa-search.fa-3x
-                            img(src="img/portfolio/07-thumbnail.jpg", alt="", class="img-fluid img-wp")
-                    .col-md-3.col-sm-4.offset-md-1.portfolio-item
-                        a(class="portfolio-link shadow-wp" data-toggle="modal" href="#portfolioModal8")
-                            .portfolio-hover
-                                .portfolio-hover-content
-                                    i.fas.fa-search.fa-3x
-                            img(src="img/portfolio/09-thumbnail.jpg", alt="", class="img-fluid img-wp")
-                .row
+                            img(src=tattoo.path, class="img-fluid img-wp")
+                    -})
+                    -if(tattoos.length > 7) {
                     .col-md-12.text-center
-                        a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button", href="#portfolio") Ver màs trabajo
+                        a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button", href="/portfolio") Ver màs trabajo
+                    -}
+
+                -}
         
         //- Last advances cintillo 
         section.page-section.mb-5.ultimate-advance#about
@@ -160,100 +93,45 @@ html(lang="en")
         //- section Art
         section.page-section.mb-5#art
             .container.bg-opacity
+                -if(posts.length > 0) {
                 .row
+                    -posts.forEach(function(post){
                     .col-md-4.col-sm-6.pb-wp
                         .card
-                            img(src="img/portfolio/arte1.jpg", class="card-img-top", alt="")
+                            img(src=post.path, class="card-img-top", alt="")
                         .card-body
-                            h5.card-title.h5-card Titulo de la noticia burda de largo para ver dos líneas
-                            p.card-text.p-card Titulo de la noticia burda de largo para ver dos líneas Titulo de la noticia burda de largo para ver dos líneasTitulo de la noticia burda de largo para
-                            .row
-                                .col-md-6.col-sm-6.col-xs-6.centrado-prov
-                                    a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button btn-more-card", href="#about2") Leer màs
-                                .col-md-6.col-sm-6.col-xs-6.centrado-prov.alig-query
-                                    a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button radius-150", href="#about2")
-                                        i.fas.fa-share-alt
-                    .col-md-4.col-sm-6.pb-wp
-                        .card
-                            img(src="img/portfolio/arte2.jpg", class="card-img-top", alt="")
-                        .card-body
-                            h5.card-title.h5-card Titulo de la noticia burda de largo para ver dos líneas
-                            p.card-text.p-card Titulo de la noticia burda de largo para ver dos líneas Titulo de la noticia burda de largo para ver dos líneasTitulo de la noticia burda de largo para
-                            .row
-                                .col-md-6.col-sm-6.col-xs-6.centrado-prov
-                                    a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button btn-more-card", href="#about2") Leer màs
-                                .col-md-6.col-sm-6.col-xs-6.centrado-prov.alig-query
-                                    a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button radius-150", href="#about2")
-                                        i.fas.fa-share-alt
-                    .col-md-4.col-sm-6.pb-wp
-                        .card
-                            img(src="img/portfolio/arte3.jpg", class="card-img-top", alt="")
-                        .card-body
-                            h5.card-title.h5-card Titulo de la noticia burda de largo para ver dos líneas
-                            p.card-text.p-card Titulo de la noticia burda de largo para ver dos líneas Titulo de la noticia burda de largo para ver dos líneasTitulo de la noticia burda de largo para
-                            .row
-                                .col-md-6.col-sm-6.col-xs-6.centrado-prov
-                                    a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button btn-more-card", href="#about2") Leer màs
-                                .col-md-6.col-sm-6.col-xs-6.centrado-prov.alig-query
-                                    a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button radius-150", href="#about2")
-                                        i.fas.fa-share-alt
-                    .col-md-4.col-sm-6.pb-wp
-                        .card
-                            img(src="img/portfolio/arte4.jpg", class="card-img-top", alt="")
-                        .card-body
-                            h5.card-title.h5-card Titulo de la noticia burda de largo para ver dos líneas
-                            p.card-text.p-card Titulo de la noticia burda de largo para ver dos líneas Titulo de la noticia burda de largo para ver dos líneasTitulo de la noticia burda de largo para
-                            .row
-                                .col-md-6.col-sm-6.col-xs-6.centrado-prov
-                                    a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button btn-more-card", href="#about2") Leer màs
-                                .col-md-6.col-sm-6.col-xs-6.centrado-prov.alig-query
-                                    a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button radius-150", href="#about2")
-                                        i.fas.fa-share-alt
-
-                    .col-md-4.col-sm-6.pb-wp
-                        .card
-                            img(src="img/portfolio/arte5.jpg", class="card-img-top", alt="")
-                        .card-body
-                            h5.card-title.h5-card Titulo de la noticia burda de largo para ver dos líneas
-                            p.card-text.p-card Titulo de la noticia burda de largo para ver dos líneas Titulo de la noticia burda de largo para ver dos líneasTitulo de la noticia burda de largo para
-                            .row
-                                .col-md-6.col-sm-6.col-xs-6.centrado-prov
-                                    a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button btn-more-card", href="#about2") Leer màs
-                                .col-md-6.col-sm-6.col-xs-6.centrado-prov.alig-query
-                                    a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button radius-150", href="#about2")
-                                        i.fas.fa-share-alt
-                    .col-md-4.col-sm-6.pb-wp
-                        .card
-                            img(src="img/portfolio/arte6.jpg", class="card-img-top", alt="")
-                        .card-body
-                            h5.card-title.h5-card Titulo de la noticia burda de largo para ver dos líneas
-                            p.card-text.p-card Titulo de la noticia burda de largo para ver dos líneas Titulo de la noticia burda de largo para ver dos líneasTitulo de la noticia burda de largo para
-                            .row
-                                .col-md-6.col-sm-6.col-xs-6.centrado-prov
-                                    a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button btn-more-card", href="#about2") Leer màs
-                                .col-md-6.col-sm-6.col-xs-6.centrado-prov.alig-query
-                                    a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button radius-150", href="#about2")
-                                        i.fas.fa-share-alt
+                            h5.card-title.h5-card=post.title
+                            p.card-text.p-card=post.description
+                            a(class="btn btn-block btn-primary btn-xl2 js-scroll-trigger arrow-button btn-more-card", href='/admin/blog/'+post._id) Leer màs
+                    -})
+                    -if(posts.length > 7) {
                     .col-md-12.text-center.mt-5
-                        button(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button") Ver màs entradas
+                        a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button") Ver màs entradas
+                    -}
+                -}
+                
 
 
         //- Contact section
         section.bg-gray#contacto
             .container
-                .row
-                    .col-md-12.text-center.mb-5
-                        p.font-42 ¡Escribenos cuando quieras!
-                        p
-                            i Si necesitas información, solo escribenos br y responderemos a todas tus preguntas.
-                    .col-md-5.form-group.offset-md-1
-                        input(type="text", placeholder="Nombre completo", class="form-control input-wp")
-                    .col-md-5.form-group.offset-xs-1
-                        input(type="email", placeholder="Email", class="form-control input-wp")
-                    .col-md-10.form-group.offset-md-1
-                        textarea(cols="30", rows="10", placeholder="Mensaje", class="form-control textarea-wp")
-                    .col-md-10.form-group.offset-md-1
-                        button(class="btn btn-light js-scroll-trigger btn-block btn-contact-wp") ENVIAR
+                    form(action="/cite" method="POST")
+                        .row
+
+                            .col-md-12.text-center.mb-5
+                                p.font-42 ¡Escribenos cuando quieras!
+                                p
+                                    i Si necesitas información, solo escribenos br y responderemos a todas tus preguntas.
+                            .col-md-5.form-group.offset-md-1
+                                input(type="text", name="name" placeholder="Nombre completo", class="form-control input-wp")
+                            .col-md-5.form-group.offset-xs-1
+                                input(type="email", name="email" placeholder="Email", class="form-control input-wp")
+                            .col-md-10.form-group.offset-md-1
+                                textarea(cols="30", rows="10", name="message" placeholder="Mensaje", class="form-control textarea-wp")
+                            .col-md-10.form-group.offset-md-1
+                                button(class="btn btn-light js-scroll-trigger btn-block btn-contact-wp" type="submit") ENVIAR
+        
+
         section.page-section.bg-cintillo-11.no-padding#we
             .container-fluid.bg-opacity
                 .row.justify-content-center
@@ -274,26 +152,28 @@ html(lang="en")
                             b.color-wp Estudios
                         h5.text-white.mt-0 Estudio, Caracas
                         p.info-col-2-p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, magni. Unde voluptatem temporibus dicta! Vero cupiditate iusto reiciendis ducimus, obcaecati
-        //- Footer
-        footer.footer-wp.mt-0#footer
-            .container
-                .row
-                    .col-md-12
-                        span.copyright 2019 Todos los derechos reservados 
-                            b Gobernantes Del Arte
-                    .col-md-12
-                        span.copyright 2019 Todos los derechos reservados diseñado por 
-                            b Armando puche 
-                        span.copyright desarrollado por 
-                            b team-une    
         
-        //- Bootstrap core JavaScript 
-        script(src="/vendor/jquery/jquery.min.js")
-        script(src="/vendor/bootstrap/js/bootstrap.bundle.min.js")
+        //- Modal
+        -tattoos.forEach(function(tattoo){
+            div(class="portfolio-modal modal fade" id="pf"+tattoo.cnt tabindex="-1" role="dialog" aria-hidden="true")
+                .modal-dialog
+                    .modal-content
+                        div(class="close-modal" data-dismiss="modal")
+                            .lr
+                                .rl
+                        .container
+                            .row
+                                .col-lg-8.mx-auto
+                                    .modal-body
+                                        h2.text-uppercase=tattoo.title
+                                        img(class="img-fluid d-block mx-auto" src=tattoo.path)
+                                        p=tattoo.description
+                                        ul.list-inline
+                                            li="Date: "+format(tattoo.created_at)
+        -})
+        include includes/client/foot.pug
 
-        //- Plugin JavaScript 
-        script(src="/vendor/jquery-easing/jquery.easing.min.js")
-        script(src="/js/main.js")
+        
 
 
                                     

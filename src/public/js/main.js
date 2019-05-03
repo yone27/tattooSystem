@@ -1,5 +1,6 @@
 (function($) {
   "use strict";
+  var works = document.getElementById('')
 
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
