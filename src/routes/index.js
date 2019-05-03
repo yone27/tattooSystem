@@ -47,7 +47,7 @@ router.post('/admin/signup', async (req, res) => {
       newUser.password = await newUser.encryptPassword(password);
       await newUser.save();
       req.flash('successMsg', 'Estas registrado');
-      res.redirect('/admin/signin');
+      res.redirect('/admin');
   }
 })
 router.get('/admin/logout', (req, res) => {
