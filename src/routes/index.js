@@ -133,7 +133,7 @@ router.get('/admin/blogs/:id/delete',isAuthenticated, async (req, res) => {
   const { id } = req.params;
   const image = await Post.findByIdAndDelete(id)
   await unlink(path.resolve('./src/public' + image.path))
-  res.redirect('/admin/blog/view');
+  res.redirect('/admin/blogs');
 })
 
 router.get('/admin/cite/:id/delete',isAuthenticated, async (req, res) => {
