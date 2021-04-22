@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Tattoo = require('../models/Tattoo');
-const Post = require('../models/Post');
+const Post = require('../models/Portfolio');
 const Cite = require('../models/Cite');
 const User = require('../models/User');
 const {unlink} = require('fs-extra')
@@ -10,9 +9,8 @@ const passport = require('passport');
 const { isAuthenticated } = require('../helpers/auth');
 
 router.get('/', async (req, res) => {
-  const tattoos = await Tattoo.find().limit(8);
   const posts = await Post.find().limit(8);
-  res.render('index', {tattoos, posts});
+  res.render('index', {posts});
 });
 // user
 router.get('/admin', (req, res) => {
@@ -59,56 +57,29 @@ router.get('/admin/panel',isAuthenticated, (req, res) => {
   res.render('admin');
 });
 
-// blog arte
-router.get('/admin/blog/add',isAuthenticated, (req, res) => {
-  res.render('blog/add');
+// portafolio
+router.get('/admin/portafolio/add',isAuthenticated, (req, res) => {
+  res.render('portafolio/add');
 });
 
-router.get('/admin/blog/:id',isAuthenticated, async (req, res) => {
+router.get('/admin/portafolio/:id',isAuthenticated, async (req, res) => {
   const { id } = req.params;
   const post = await Post.findById(id);
-  res.render('blog/more', {post});
+  res.render('portafolio/more', {post});
 });
 
-router.post('/admin/blog/add',isAuthenticated, async(req, res) => {
+router.post('/admin/portafolio/add',isAuthenticated, async(req, res) => {
   const post = new Post();
   post.title = req.body.title;
-  post.subtitle = req.body.subtitle;
+  post.url = req.body.url;
   post.description = req.body.description;
-  post.summary = req.body.summary;
   post.path = '/img/uploads/'+req.file.filename;
   post.originalname = req.file.originalname;
   post.cnt = await Post.countDocuments();
   await post.save();
-  res.redirect("/admin/blog/add");
+  res.redirect("/admin/portafolio/add");
 });
 
-// tatto
-router.get('/admin/tattoo/add',isAuthenticated, (req, res) => {
-  res.render('tattoo/add');
-});
-
-router.get('/admin/tattoo/view',isAuthenticated, async(req, res) => {
-  const tattoos = await Tattoo.find();
-  res.render('tattoo/view', {tattoos});
-});
-router.post('/admin/tattoo/add',isAuthenticated, async(req, res) => {
-  const tattoo = new Tattoo();
-  tattoo.title = req.body.title;
-  tattoo.description = req.body.description;
-  tattoo.path = '/img/uploads/'+req.file.filename;
-  tattoo.originalname = req.file.originalname;
-  tattoo.cnt = await Tattoo.count();
-  await tattoo.save();
-  res.redirect("/admin/tattoo/add");
-});
-
-router.get('/admin/tattoo/:id/delete',isAuthenticated, async (req, res) => {
-  const { id } = req.params;
-  const image = await Tattoo.findByIdAndDelete(id)
-  await unlink(path.resolve('./src/public' + image.path))
-  res.redirect('/admin/tattoo/view');
-})
 // cite
 router.post('/cite', async(req, res) => {
   const cite = new Cite();
@@ -125,15 +96,15 @@ router.get('/admin/cite',isAuthenticated, async(req, res) => {
   res.render('cite/view', {cites});
 });
 
-router.get('/admin/blogs',isAuthenticated, async(req, res) => {
+router.get('/admin/portafolios',isAuthenticated, async(req, res) => {
   const posts = await Post.find();
-  res.render('blog/view', {posts});
+  res.render('portafolio/view', {posts});
 });
-router.get('/admin/blogs/:id/delete',isAuthenticated, async (req, res) => {
+router.get('/admin/portafolios/:id/delete',isAuthenticated, async (req, res) => {
   const { id } = req.params;
   const image = await Post.findByIdAndDelete(id)
   await unlink(path.resolve('./src/public' + image.path))
-  res.redirect('/admin/blogs');
+  res.redirect('/admin/portafolios');
 })
 
 router.get('/admin/cite/:id/delete',isAuthenticated, async (req, res) => {

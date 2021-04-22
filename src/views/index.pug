@@ -4,176 +4,241 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        title Gobierno arte
+        title Yoneiker Gonzalez | Desarrollador Junior
         include includes/client/head.pug
-
     body(id="page-top")
         include includes/client/navigation.pug
         //- Header
-        header.masthead#home
-            .container
-                .intro-text
-                    a(href="#inicio" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger arrow-button header-pt animated bounceInUp") <i class="fas fa-angle-down" ></i>
-                    br 
-                    p.color-wp.animated.bounceInUp VER MÀS
+        header
+            .contenedor
+                .contenido-header
+                    h1.titulo-header Yoneiker Gonzalez
+                    span.linea-header
+                    h2.texto-header Desarrollador Junior con mucuhas ganas de seguir superandose, respetuoso y dedicado a su trabajo.
 
-        //- About me section
-        section#inicio
-            .container
-                .row
-                    .col-md-5.col-sm-12.text-informacion
-                        p#pWepa.font-2 YO SOY
-                        h3.section-heading.color-wp.text-uppercase Yoner art
-                        hr.hr-2
-                        p.text-muted.font-14 Lorem ipsum dolorem sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
-                        p.text-muted.font-14 Lorem ipsum dolorem sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.
-                        a(href="#contacto" class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button font-normal mb-4") !Pide una cita!
-                    .col-md-4.col-sm-12.portfolio-item.mb-4.text-center
-                        a(href="#portfolioModal1" class="portfolio-link shadow-wp")
-                            img(src="img/team/1.jpg", class="img-fluid size-img-2")
-                    .col-md-3.col-sm-12
-                        .row.mt-0
-                            .col-md-12.col-sm-4
-                                a(href="#portfolioModal1" class="portfolio-link shadow-wp" data-toggle="modal")
-                                    img(src="img/portfolio/tattos2.jpg", class="img-fluid size-img width100")
-                            .col-md-12.col-sm-4
-                                a(href="#portfolioModal1" class="portfolio-link shadow-wp" data-toggle="modal")
-                                    img(src="img/portfolio/tattos3.png", class="img-fluid size-img width100", style="border-top: 5px solid white; border-bottom: 5px solid white;")
-                            .col-md-12.col-sm-4
-                                a(href="#portfolioModal1" class="portfolio-link shadow-wp" data-toggle="modal")
-                                    img(src="img/portfolio/01-thumbnail.jpg", class="img-fluid size-img width100")
-
-        
-        //- Cintillo
-        section.page-section.bg-cintillo-1
-            .container.bg-opacity
-                .row.justify-content-center
-                    .col-lg-8.text-center
-                        h2#test11.text-white.mt-0 ¿ESTAS LISTO PARA TU 
-                            b.color-black PROXIMO TATUAJE?
-                        p.mb-4.color-white.font-2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, magni. Unde voluptatem   temporibus dicta! Vero cupiditate iusto reiciendis ducimus, obcaecati.
-                        a(href="#contacto", class="btn btn-light js-scroll-trigger btn-tattos") !Pide una cita!
-        
-        //- Portfolio Grid
-        section#portfolio.bg-light
-            .container-fluid
-                -if(tattoos.length > 0) {
-                .row
-                    .col-lg-12.text-center
-                        p#pWepa ¿Quieres tatuarte?
-                        h2.section-heading.color-wp Mira Nuestros ùltimos trabajos
-                        hr#hrWpepa
-                    -tattoos.forEach(function(tattoo){
-                    .col-md-3.col-sm-4.portfolio-item
-                        a(class="portfolio-link shadow-wp" data-toggle="modal" href="#pf"+tattoo.cnt)
-                            .portfolio-hover
-                                .portfolio-hover-content
-                                    i.fas.fa-search.fa-3x
-                            img(src=tattoo.path, class="img-fluid img-wp")
-                    -})
-                    -if(tattoos.length > 7) {
-                    .col-md-12.text-center
-                        a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button", href="/portfolio") Ver màs trabajo
+        //- main
+        main 
+            //- about
+            section#aboutme
+                .container-fluid.bg-gray.pt-5.pb-5
+                    .row
+                        .col-md-4.col-sm-6.text-center
+                            .card.mb-2
+                                .card-body
+                                    img(src="img/icono1.png" alt="" class="img-fluid")
+                                    h3 Velocidad de trabajo
+                                    p Considero que con una buena organizacion el tiempo pasa a segundo plano.
+                        .col-md-4.col-sm-6.text-center
+                            .card.mb-2
+                                .card-body
+                                    img(src="img/icono2.png" alt="" class="img-fluid")
+                                    h3 Vision
+                                    p Soy un desarrollador con impetuasas ganas de trabajar y aprender cosas nuevas.
+                        .col-md-4.col-sm-6.text-center
+                            .card.mb-2
+                                .card-body
+                                    img(src="img/icono3.png" alt="" class="img-fluid")
+                                    h3 Constancia
+                                    p Siempre y cuando alla constancia se puede llegar a la excelencia.
+            //- more about
+            section.container-fluid.bg-gray.pt-5.pb-5
+                .container
+                    .row.about.p-5
+                        .col-lg-8.col-md-12.col-sm-12
+                            img(class="card-img-top" src="img/3.jpg" alt="Mi foto")
+                        .col-lg-4.col-md-12.col-sm-12.text-uppercase.pt-5.pl-5
+                            h6 Hola, soy
+                            h2 Yoneiker Gonzalez
+                            h4 Desarrollador Web Junior
+                            p Actualmente estudiante del 8vo trimestre de la carrera de computacion. Desarrollador Frontend de la empresa wepa media. <br> Autodidacta, Respetuoso, Ordenado, Trabajador Comprometido con el trabajo.
+                            ul 
+                                li  
+                                    a(href="")
+                                        i 25 de octubre de 1999
+                                li  
+                                    a(href="#")
+                                        i Git
+                                li  
+                                    a(href="mailto: yonex27000@gmail.com")
+                                        i yonex27000@gmail.com
+                                li  
+                                    a(href="")
+                                        i Telefono
+                                li  
+                                    a(href="")
+                                        i Caracas - Antimano
+            //- About me section
+            section.container-fluid.bg-gray.pt-5#portfolio
+                .container
+                    -if(posts.length > 0) {                
+                    .row.my-2
+                        -posts.forEach(function(post){
+                            .col-md-12.text-center.header-portfolio
+                                h2 PROYECTOS
+                                p Contactame si te gusta mi trabajo
+                            .col-md-4.col-lg-4.col-sm-6.col-xs-12.mb-4
+                                .card
+                                    a(href=post.url)
+                                        img(class="card-img-top" target="_blank" src=post.path)
+                                    .card-body
+                                        h5.card-title.h5-card
+                                            a(href=post.url)=post.title 
+                                        p.card-text.p-card=post.description
+                                        a(target="_blank" href=post.url class="btn btn-primary btn-lg btn-block bg-yg") Visitar 
+                        -})                        
+                        -if(posts.length > 7) {
+                            .col-md-12.text-center.mt-5
+                                a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button") Ver màs entradas
+                        -}
                     -}
-
-                -}
-        
-        //- Last advances cintillo 
-        section.page-section.mb-5.ultimate-advance#about
-            .container.bg-opacity
-                .row.text-center
-                    .col-md-12
-                        p.font-2 Descubre los ùltimos avances
-                    .col-md-12
-                        h3.section-heading Disfruta del mejor blog de arte
-                        .flecha-down.centrarCaja
-                        .flecha-down2.centrarCaja1
-                    hr
-        
-        //- section Art
-        section.page-section.mb-5#art
-            .container.bg-opacity
-                -if(posts.length > 0) {
-                .row
-                    -posts.forEach(function(post){
-                    .col-md-4.col-sm-6.pb-wp
-                        .card
-                            img(src=post.path, class="card-img-top", alt="")
-                        .card-body
-                            h5.card-title.h5-card=post.title
-                            p.card-text.p-card=post.description
-                            a(class="btn btn-block btn-primary btn-xl2 js-scroll-trigger arrow-button btn-more-card", href='/admin/blog/'+post._id) Leer màs
-                    -})
-                    -if(posts.length > 7) {
-                    .col-md-12.text-center.mt-5
-                        a(class="btn btn-primary btn-xl2 js-scroll-trigger arrow-button") Ver màs entradas
-                    -}
-                -}
-                
-
-
-        //- Contact section
-        section.bg-gray#contacto
-            .container
-                    form(action="/cite" method="POST")
-                        .row
-
-                            .col-md-12.text-center.mb-5
-                                p.font-42 ¡Escribenos cuando quieras!
-                                p
-                                    i Si necesitas información, solo escribenos br y responderemos a todas tus preguntas.
-                            .col-md-5.form-group.offset-md-1
-                                input(type="text", name="name" placeholder="Nombre completo", class="form-control input-wp")
-                            .col-md-5.form-group.offset-xs-1
-                                input(type="email", name="email" placeholder="Email", class="form-control input-wp")
-                            .col-md-10.form-group.offset-md-1
-                                textarea(cols="30", rows="10", name="message" placeholder="Mensaje", class="form-control textarea-wp")
-                            .col-md-10.form-group.offset-md-1
-                                button(class="btn btn-light js-scroll-trigger btn-block btn-contact-wp" type="submit") ENVIAR
-        
-
-        section.page-section.bg-cintillo-11.no-padding#we
-            .container-fluid.bg-opacity
-                .row.justify-content-center
-                    .col-md-6.col-sm-6.col-xs-6.text-center.center-elements
-                        .row
-                            .col-md-12
-                                a(href="#page-top" class="navbar-brand js-scroll-trigger") Gobernantes Del Arte
-                            .col-md-12
-                                a(href="#" class="btn btn-primary info-pr-3") 
-                                    i.fab.fa-facebook-square.fa-2x
-                                a(href="#" class="btn btn-primary info-pr-3") 
-                                    i.fab.fa-twitter-square.fa-2x
-                                a(href="#" class="btn btn-primary info-pr-3") 
-                                    i.fab.fa-instagram.fa-2x
-
-                    .col-md-6.col-sm-6.col-xs-6.text-left.info-col-2
-                        h2.text-white.mt-0 Nuestros 
-                            b.color-wp Estudios
-                        h5.text-white.mt-0 Estudio, Caracas
-                        p.info-col-2-p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, magni. Unde voluptatem temporibus dicta! Vero cupiditate iusto reiciendis ducimus, obcaecati
-        
-        //- Modal
-        -tattoos.forEach(function(tattoo){
-            div(class="portfolio-modal modal fade" id="pf"+tattoo.cnt tabindex="-1" role="dialog" aria-hidden="true")
-                .modal-dialog
-                    .modal-content
-                        div(class="close-modal" data-dismiss="modal")
-                            .lr
-                                .rl
-                        .container
+            //- more
+            section.mt-5#education
+                .container
+                    ul(class="nav nav-tabs" id="myTab" role="tablist")
+                        li.nav-item
+                            a(class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true") Experiencia
+                        li.nav-item
+                            a(class="nav-link", id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true") Educacion
+                        li.nav-item
+                            a(class="nav-link", id="curso-tab" data-toggle="tab" href="#curso" role="tab" aria-controls="curso" aria-selected="true") Cursos
+                        li.nav-item
+                            a(class="nav-link", id="skills-tab" data-toggle="tab" href="#skills" role="tab" aria-controls="skills" aria-selected="true") Habilidades
+                    .tab-content#myTabContent
+                        div(class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab")
+                            ul.list.text-center
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Wepa Media
+                                            h5 Desarrollador Frontend
+                                            p Desarrollo de aplicaciones en yii2 framework, construccion de templates y estilizacion de las mismas. Conocimientos del backend.
+                                        .date
+                                            p Marzo 2019 - Presente
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Mipto
+                                            h5 Desarrollador Frontend y Backend
+                                            p Desarrollo de aplicaciones en angular 6.
+                                        .date
+                                            p Enero 2019 - Marzo 2019
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Gobernacion de Miranda
+                                            h5 Desarrollador Frontend y Backend
+                                            p Desarrollo de aplicaciones en php 7 puro.
+                                        .date
+                                            p Enero 2019 - Marzo 2019
+                        div(class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="home-tab")
+                            ul.list.text-center
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Universidad Nueva Esparta
+                                            h5 Licenciatura en Computacion
+                                        .date
+                                            p Octubre 2016 - Presente
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Unidad Educativa Fernando de Magallanes
+                                            h5 Bachiller en ciencias
+                                        .date
+                                            p Enero 2012 - Septiembre 2016
+                        div(class="tab-pane fade show" id="curso" role="tabpanel" aria-labelledby="home-tab")
+                            ul.list.text-center
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Programación Basica
+                                            h5 Platzi
+                                        .date
+                                            p Marzo 2019 - Marzo 2019
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Nodejs Express
+                                            h5 Fazt
+                                        .date
+                                            p Abril 2018 - Abril 2018
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 HTML5 CSS3 y BOOTSTRAP 3
+                                            h5 Falcon Master
+                                        .date
+                                            p Octubre 2018 - Octubre 2018
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 JavaScript 
+                                            h5 Pildoras Informaticas
+                                        .date
+                                            p Septiembre 2018 - Octubre 2018
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Sass
+                                            h5 Tutoriales Soy Frontend
+                                        .date
+                                            p Abril 2019 - Abril 2019
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Angular
+                                            h5 Fazt
+                                        .date
+                                            p Marzo 2019 - Marzo 2019
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Vuejs y Mongodb
+                                            h5 Fazt
+                                        .date
+                                            p Abril 2019 - Abril 2019
+                        div(class="tab-pane fade show" id="skills" role="tabpanel" aria-labelledby="home-tab")
+                            ul.list.text-center
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Html5, Css3 Y Bootstrap 3 | 4
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Php(Yii2), Nodejs(express), Angularjs, Vuejs, JavaScript
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Mongodb, Postgresql, Mysql, Firebase, Heidisql
+                                li.col-md-6
+                                    .content
+                                        .body
+                                            h3 Sass, pug, jade, hbs, ejs
+                                li.col-md-4
+                                    .content
+                                        .body
+                                            h3 Git (sourcetree, git bash), metodologia scrumb
+            //- Contact section
+            section.bg-gray#contact
+                .container
+                        form(action="/cite" method="POST")
                             .row
-                                .col-lg-8.mx-auto
-                                    .modal-body
-                                        h2.text-uppercase=tattoo.title
-                                        img(class="img-fluid d-block mx-auto" src=tattoo.path)
-                                        p=tattoo.description
-                                        ul.list-inline
-                                            li="Date: "+format(tattoo.created_at)
-        -})
+                                .col-md-12.text-center.mb-5
+                                    a(href="/test")
+                                    h4.font-42 ¡Escribeme cuando quieras!
+                                .col-md-5.form-group.offset-md-1
+                                    input(type="text", name="name" placeholder="Nombre completo", class="form-control input-wp")
+                                .col-md-5.form-group.offset-xs-1
+                                    input(type="email", name="email" placeholder="Email", class="form-control input-wp")
+                                .col-md-10.form-group.offset-md-1
+                                    textarea(cols="30", rows="10", name="message" placeholder="Mensaje", class="form-control textarea-wp")
+                                .col-md-10.form-group.offset-md-1
+                                    button(class="btn btn-light js-scroll-trigger btn-block btn-contact-wp text-white bg-yg" type="submit") ENVIAR
         include includes/client/foot.pug
 
-        
+         
 
 
                                     

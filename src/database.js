@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://yone:yone123@cluster0-t41nx.mongodb.net/test?retryWrites=true', {
+mongoose.connect('mongodb://localhost/portafolio', {
     useCreateIndex: true,
     useNewUrlParser: true,
     useFindAndModify: false

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title admin Post | add
+        include ../includes/admin/head.pug
+    body(id="page-top")
+        include ../includes/admin/navigation.pug
+        //- Form tattoo
+        .container.p-4
+            .row
+                .col-md-4.offset-md-4
+                    .card
+                        .card-header.text-center
+                            h3.card-title Nuevo Sitio
+                            p   
+                                a(href="/admin/portafolios") Ver sitios
+                        .card-body
+                            form(action="/admin/portafolio/add" method="POST" enctype="multipart/form-data")
+                                .form-group
+                                    input(required type="text" name="title" class="form-control" placeholder="Titulo")
+                                .form-group
+                                    input(required type="text" name="url" class="form-control" placeholder="Direccion url")
+                                .form-group
+                                    textarea(name="description",class="form-control", placeholder="Descripcion")
+                                .input-group.mb-3
+                                    .custom-file
+                                        input(required type="file" class="custom-file-input" name="image" value="Buscar")
+                                        label(class="custom-file-label") Subir imagen
+                                .form-group
+                                    input(type="submit" value="Guardar" class="btn btn-success btn-block")
+        include ../includes/admin/foot.pug
